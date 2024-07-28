@@ -6,10 +6,6 @@ class CustomColors {
     // static Colors themeColor = Colors.deepPurple as Colors;
     static const Color headingColors = Colors.white;
 }
-class CustomFontWeights{
-    static const FontWeight commonFonts = FontWeight.w600;
-    static const FontWeight boldFonts = FontWeight.bold;
-}
 
 class CustomTextFormField extends StatelessWidget {
     final String labelText;
@@ -137,3 +133,64 @@ class CustomButton extends StatelessWidget {
     }
 }
 
+class CustomCard extends StatelessWidget {
+    final Widget child;
+    final double elevation;
+    final Color? color;
+    final EdgeInsetsGeometry margin;
+    final ShapeBorder? shape;
+
+    const CustomCard({
+        super.key,
+        required this.child,
+        this.elevation = 1.0,
+        this.color,
+        this.margin = const EdgeInsets.all(4.0),
+        this.shape,
+    });
+
+    @override
+    Widget build(BuildContext context) {
+        return Card(
+            elevation: elevation,
+            color: color,
+            margin: margin,
+            shape: shape,
+            child: child,
+        );
+    }
+}
+
+class CustomListTile extends StatelessWidget {
+    final Widget leading;
+    final Widget title;
+    final Widget? subtitle;
+    final VoidCallback? onTap;
+    final EdgeInsetsGeometry? contentPadding;
+    final Widget? trailing;
+    final bool enabled;
+
+    const CustomListTile({
+        super.key,
+        required this.leading,
+        required this.title,
+        this.subtitle,
+        this.onTap,
+        this.contentPadding,
+        this.trailing,
+        this.enabled = true,
+    });
+
+    @override
+    Widget build(BuildContext context) {
+        return ListTile(
+            leading: leading,
+            title: title,
+            subtitle: subtitle,
+            onTap: onTap,
+            contentPadding: contentPadding,
+            trailing: trailing,
+            enabled: enabled,
+        );
+    }
+}
